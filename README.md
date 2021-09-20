@@ -59,9 +59,11 @@ By default, the `/` route is used by the `auth` blueprint.
 The rest of the resources are found in `/api` (This is the docs route by default, this can be changed easily).
 
 ## Installing
+
+*Note: Skip to the next section if you want to install this via Docker.*
 ```sh
 # Clone the repo
-$ git clone https://github.com/X1Zeth2X/flask-restx-boilerplate.git
+$ git clone https://github.com/alexandru-grajdeanu/baseapi.git
 
 # Install packages with pipenv
 $ pipenv install
@@ -76,6 +78,9 @@ SECRET_KEY=UnC@lYub3AoPySykNeB00na!
 
 FLASK_APP=run
 FLASK_ENV=development
+
+CELERY_BROKER_URL=redis://127.0.0.1:6379/0
+CELERY_RESULT_BACKEND_URL=redis://127.0.0.1:6379/0
 ```
 
 ```sh
@@ -95,7 +100,10 @@ $ flask run
 You can run this boilerplate via `docker-compose` to get rid of setting everything by yourself.
 
 ```sh
-docker-compose up --build
+$ docker-compose up --build
+
+# Running tests
+$ docker-compose exec backend python -m flask test
 ```
 
 Access the service at: `http://localhost:5000` and `http://localhost:5000/api/` or 
