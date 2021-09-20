@@ -91,6 +91,16 @@ $ flask db upgrade
 $ flask run
 ```
 
+## Docker-compose
+You can run this boilerplate via `docker-compose` to get rid of setting everything by yourself.
+
+```sh
+docker-compose up --build
+```
+
+Access the service at: `http://localhost:5000` and `http://localhost:5000/api/` or 
+`http://localhost:5555` to view the celery tasks (Flower dashboard).
+
 ## Unit testing
 This boilerplate has some unit tests written, and I encourage adding more unit tests as you scale.
 

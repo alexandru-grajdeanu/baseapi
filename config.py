@@ -1,7 +1,7 @@
 import os
 from datetime import timedelta
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
@@ -27,7 +27,7 @@ class DevelopmentConfig(Config):
     }
 
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL", "sqlite:///" + os.path.join(basedir, "data-dev.sqlite")
+        "DATABASE_URL", f"sqlite:///{os.path.join(BASEDIR, 'data-dev.sqlite')}"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -48,7 +48,7 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL", "sqlite:///" + os.path.join(basedir, "data.sqlite")
+        "DATABASE_URL", f"sqlite:///{os.path.join(BASEDIR, 'data.sqlite')}"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
